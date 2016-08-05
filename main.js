@@ -51,7 +51,7 @@ function searchYoutube (query, done) {
 
     // Search specifically for lyrics videos if they exist
     // Don't want any of that additional storyline stuff
-    if (query.match(/lyric/) || !results.filter(r => r.title.match(/lyric/)).length) return done(null, results)
+    if (query.match(/lyric/i) || !results.filter(r => r.title.match(/lyric/i)).length) return done(null, results)
     return searchYoutube(query + ' lyric', done)
   })
 }

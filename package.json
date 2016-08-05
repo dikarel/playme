@@ -3,7 +3,7 @@
   "preferGlobal": true,
   "description": "Play songs from your command line",
   "author": "Darius I. Karel <me@dikarel.com>",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "dependencies": {
     "mkdirp": "^0.5.1",
     "mplayer": "^2.1.0",

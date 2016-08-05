@@ -17,7 +17,7 @@ const mp3Path = downloadedFilename(title)
 if (fileExists(mp3Path)) {
   play(mp3Path)
 } else {
-  searchYoutube(title + ' lyrics', (err, results) => {
+  searchYoutube(title + ' song', (err, results) => {
     if (err) return console.log(err)
     const download = downloadMp3(results[0].link)
 
@@ -46,7 +46,14 @@ function searchYoutube (query, done) {
   ytsearch(query, {
     maxResults: 10,
     key: 'AIzaSyC4_QToE-jHkz_CZ9v_HO3PUyUk4Zn57sw'
-  }, done)
+  }, (err, results) => {
+    if (err) return done(err)
+
+    // Search specifically for lyrics videos if they exist
+    // Don't want any of that additional storyline stuff
+    if (!results.filter(r => r.title.match(/lyric/)).length) return done(null, results)
+    return searchYoutube(query + ' lyrics', done)
+  })
 }
 
 function downloadMp3 (youtubeUrl) {

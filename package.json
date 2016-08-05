@@ -1,4 +1,6 @@
 {
+  "name": "playme",
+  "version": "0.0.0",
   "dependencies": {
     "mkdirp": "^0.5.1",
     "mplayer": "^2.1.0",

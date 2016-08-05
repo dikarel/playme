@@ -51,14 +51,14 @@ function searchYoutube (query, done) {
 
     // Search specifically for lyrics videos if they exist
     // Don't want any of that additional storyline stuff
-    if (!results.filter(r => r.title.match(/lyric/)).length) return done(null, results)
-    return searchYoutube(query + ' lyrics', done)
+    if (query.match(/lyric/) || !results.filter(r => r.title.match(/lyric/)).length) return done(null, results)
+    return searchYoutube(query + ' lyric', done)
   })
 }
 
 function downloadMp3 (youtubeUrl) {
   console.log(`Grabbing download link for ${youtubeUrl}...`)
-  const stdout = execFileSync('phantomjs', ['getDownloadUrl.js', youtubeUrl])
+  const stdout = execFileSync('phantomjs', [path.join(__dirname, 'getDownloadUrl.js'), youtubeUrl])
   const {downloadLink, cookies, referer} = JSON.parse(stdout)
 
   console.log(`Downloading from ${downloadLink}...`)

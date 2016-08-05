@@ -1,6 +1,9 @@
 {
   "name": "playme",
-  "version": "0.0.0",
+  "preferGlobal": true,
+  "description": "Play songs from your command line",
+  "author": "Darius I. Karel <me@dikarel.com>",
+  "version": "0.0.1",
   "dependencies": {
     "mkdirp": "^0.5.1",
     "mplayer": "^2.1.0",
@@ -9,5 +12,19 @@
   },
   "bin": {
     "playme": "bin/playme"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dikarel/playme"
+  },
+  "bugs": {
+    "url": "https://github.com/dikarel/playme/issues"
+  },
+  "keywords": [
+    "play",
+    "song",
+    "songs",
+    "online"
+  ],
+  "license": "MIT"
 }

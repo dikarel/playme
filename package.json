@@ -1,0 +1,11 @@
+{
+  "dependencies": {
+    "mkdirp": "^0.5.1",
+    "mplayer": "^2.1.0",
+    "needle": "^1.0.0",
+    "youtube-search": "^1.0.6"
+  },
+  "bin": {
+    "playme": "bin/playme"
+  }
+}
